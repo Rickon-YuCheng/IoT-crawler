@@ -266,6 +266,7 @@ def render_map_component(df: pd.DataFrame, active_date: str):
         )
 
     html = f"""
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -285,8 +286,8 @@ def render_map_component(df: pd.DataFrame, active_date: str):
     </style>
     <div class="w-full rounded-2xl border border-slate-200 bg-white shadow-lg p-4">
       <div class="flex flex-col md:flex-row gap-4">
-        <div class="md:w-2/3 w-full h-[520px] rounded-xl overflow-hidden border border-slate-200" id="leaflet-wrapper">
-          <div id="map" class="h-full w-full"></div>
+        <div class="md:w-2/3 w-full h-[520px] rounded-xl overflow-hidden border border-slate-200" id="leaflet-wrapper" style="height:520px;">
+          <div id="map" class="h-full w-full" style="height:100%; width:100%;"></div>
         </div>
         <div class="md:w-1/3 w-full flex flex-col gap-3">
           <div class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
@@ -294,12 +295,12 @@ def render_map_component(df: pd.DataFrame, active_date: str):
             <div id="selected-loc" class="text-2xl font-bold text-slate-900">請點選地區</div>
             <div id="selected-range" class="text-sm text-slate-600 mt-1">—</div>
           </div>
-          <div class="rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm">
+          <div class="rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm" style="height: 320px;">
             <div class="flex items-center justify-between mb-2">
               <div class="text-sm font-semibold text-slate-700">溫度時間序列</div>
               <div id="legend" class="text-xs text-slate-500">最高 / 最低</div>
             </div>
-            <canvas id="tempChart" class="w-full h-64"></canvas>
+            <canvas id="tempChart" class="w-full h-full" style="height: calc(100% - 32px); width: 100%;"></canvas>
           </div>
         </div>
       </div>
@@ -430,7 +431,7 @@ def render_map_component(df: pd.DataFrame, active_date: str):
       markActive(defaultLoc);
     </script>
     """
-    st.components.v1.html(html, height=620, scrolling=False)
+    st.components.v1.html(html, height=760, scrolling=False)
 
 
 if __name__ == "__main__":
