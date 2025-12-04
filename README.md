@@ -1,4 +1,5 @@
 Adapted from Yen-Lung Lai's AI-Demo project:
+
 [https://github.com/yenlung/AI-Demo/blob/master/【Demo04】用AISuite打造員瑛式思考生成器](https://github.com/yenlung/AI-Demo/blob/master/%E3%80%90Demo04b%E3%80%91%E5%93%A1%E7%91%9B%E5%BC%8F%E6%80%9D%E8%80%83%E7%94%9F%E6%88%90%E5%99%A8_Two_Stage_CoT_%E7%89%88.ipynb)
 
 
